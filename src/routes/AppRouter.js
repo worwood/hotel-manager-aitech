@@ -9,7 +9,7 @@ import { DashBoardRoutes } from './DashBoardRoutes';
 
 export const AppRouter = () => {
     return (
-        <Router>
+        <Router basename="/hotel-manager-aitech">
             <Switch>
                 <Route exact path="/login" component={LoginView}/>
                 <Route path="/" component={DashBoardRoutes}/>

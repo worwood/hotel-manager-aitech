@@ -19,7 +19,6 @@ export const RegisterView = () => {
                 <div className="container">
                     <button className="btn btn-primary btn-lg" onClick={ handleFormButon }>Registrar Nuevo ingreso</button>
                 </div>
-            
             <FormModal />
         </div>
     )
