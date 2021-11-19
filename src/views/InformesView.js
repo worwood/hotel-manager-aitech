@@ -22,7 +22,7 @@ export const InformesView = () => {
                 <DatePickerInform date = { date } setDate = { setDate } />
                 {inform.readyToDownload ? <ExcelDayly date={fecha}/>:<></>}
                 <button className="btn btn-primary btn-lg" onClick={ handleFormButon }>
-                  Prue
+                  Descargar Informe Diario
                 </button>
               </div>
               <div className="col">
