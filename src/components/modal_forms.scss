@@ -6,8 +6,9 @@
   
     border: 1px solid #ccc;
     background: #fff;
-    height: 95vh;
-    max-height: 780px;
+    height: auto;
+    //min-height: 95vh;
+    max-height: 95vh;
     min-width: 300px;
     overflow: auto;
     border-radius: 10px;    
