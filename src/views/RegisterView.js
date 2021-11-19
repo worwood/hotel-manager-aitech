@@ -14,12 +14,13 @@ export const RegisterView = () => {
     }
 
     return (
-        <>
+        <div className="container">
             <h1>Pagina de Registros</h1>
-
-            <button className="btn btn-primary btn-lg" onClick={ handleFormButon }>Registrar Nuevo ingreso</button>
+                <div className="container">
+                    <button className="btn btn-primary btn-lg" onClick={ handleFormButon }>Registrar Nuevo ingreso</button>
+                </div>
             
             <FormModal />
-        </>
+        </div>
     )
 }
