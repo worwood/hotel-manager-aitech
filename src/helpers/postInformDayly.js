@@ -2,7 +2,7 @@ export  const postInformDayly = async(date) => {
     const dataSend = {date: date,
     };
     console.log(dataSend)
-    const url= `http://localhost:8080/api/flujos/informDayly`
+    const url= `https://hotelesaitechbeta.azurewebsites.net/api/flujos/informDayly`
     const resp = await fetch(url,{
         method: 'POST',// *default, no-cache, reload, force-cache, only-if-cached
         headers: {

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/2614c32b-cb9e-4c80-b969-5bfaa582972b/resourceGroups/hotelesaitechbeta/providers/Microsoft.Web/sites/hotelesaitechbeta",
+    "appService.deploySubpath": "."
+}

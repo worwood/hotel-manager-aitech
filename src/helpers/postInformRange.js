@@ -1,7 +1,7 @@
 export  const postInformRange = async(date) => {
     const dataSend = date;
     console.log({...dataSend})
-    const url= `http://localhost:8080/api/flujos/rangeInform`
+    const url= `https://hotelesaitechbeta.azurewebsites.net/api/flujos/rangeInform`
     const resp = await fetch(url,{
         method: 'POST',// *default, no-cache, reload, force-cache, only-if-cached
         headers: {
