@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { registerPostUser, registerUser } from '../actions/registerForm';
+import { registerClean, registerPostUser, registerUser } from '../actions/registerForm';
 import { uiPage } from '../actions/ui';
 import { useForm } from '../hooks/useForm';
 
@@ -34,7 +34,8 @@ export const PageForm2 = () => {
         
     const beforePage = (e) => {
         e.preventDefault();
-        dispatch(uiPage(1));}
+        dispatch(uiPage(1));
+        dispatch(registerClean());}
     return (
         <form>
             <h3> Pagina 2 </h3>
@@ -48,7 +49,7 @@ export const PageForm2 = () => {
                         name="name"
                         value={ newReg ? user.name : nombre}
                         onChange={handleInputUser}
-                        disabled={!newReg}
+                        disabled={ !newReg }
                     />
                 </div>
                 <div className="mb-2">

@@ -1,15 +1,14 @@
-export  const postInformDayly = async(date) => {
-    const dataSend = {date: date,
-    };
-    console.log(dataSend)
-    const url= `http://localhost:8080/api/flujos/informDayly`
+export  const postInformRange = async(date) => {
+    const dataSend = date;
+    console.log({...dataSend})
+    const url= `http://localhost:8080/api/flujos/rangeInform`
     const resp = await fetch(url,{
         method: 'POST',// *default, no-cache, reload, force-cache, only-if-cached
         headers: {
         'Content-Type': 'application/json'
         // 'Content-Type': 'application/x-www-form-urlencoded',
         }, // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(dataSend) 
+        body: JSON.stringify({...dataSend}) 
     }
         
         );

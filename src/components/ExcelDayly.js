@@ -12,10 +12,8 @@ export const ExcelDayly = ({date}) => {
     return (
                 <ExcelFile  filename={'Informe-'+date} hideElement={true}>
                     <ExcelSheet data={data} name="Parte Diario">                        
-                        <ExcelColumn label="CHECK IN"
-                                    value={(col) => col.entrada_salida ? col.fecha : ""}/>
-                        <ExcelColumn label="CHECK OUT"
-                                    value={(col) => col.entrada_salida ? "" : col.fecha}/>
+                        <ExcelColumn label="CHECK IN" value="check_in"/>
+                        <ExcelColumn label="CHECK OUT" value="check_out"/>
                         <ExcelColumn label="N° PIEZA" value="id_habitacion"/>
                         <ExcelColumn label="NOMBRE Y APELLIDO" value="fullName"/>
                         <ExcelColumn label="SEXO" value="sexo"/>

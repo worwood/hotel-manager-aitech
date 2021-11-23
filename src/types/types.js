@@ -15,9 +15,18 @@ export const types = {
     //Informes
     informStateEnable: '[inform] Informe Listo ',
     informStateDisable: '[inform] Informe no Preparado',
+    informStateEnable2: '[inform] Informe Listo 2 ',
+    informStateDisable2: '[inform] Informe no Preparado 2',
+    informStateEnable3: '[inform] Informe Listo 3',
+    informStateDisable3: '[inform] Informe no Preparado 3',
     informSaveData: '[inform] Informe guardado',
     informReady: '[inform] Informe Listo Deploy',
     informNotReady: '[inform] Informe no Listo Deploy',
+    informReady2: '[inform] Informe Listo Deploy 2',
+    informNotReady2: '[inform] Informe no Listo Deploy 2',
+    informReady3: '[inform] Informe Listo Deploy 3',
+    informNotReady3: '[inform] Informe no Listo Deploy 3',
+    informSaveDataRange: '[inform] Informe Rango guardado',
     //Autenticacion
     login: '[Auth] Login',
     logout: '[Auth] Logout',

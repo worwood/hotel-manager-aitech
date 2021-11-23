@@ -71,9 +71,7 @@ export const registerFormReducer = (state = initialState, action) => {
             };
         case types.registerClean:
         
-            return {
-                initialState
-            };
+            return initialState;
     
         default:
             return state;

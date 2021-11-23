@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { registerInOut, registerPost } from '../actions/registerForm';
 import { uiPage } from '../actions/ui';
 import { useForm } from '../hooks/useForm';
+import DatePicker,{registerLocale} from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import es from 'date-fns/locale/es';
+registerLocale('es', es)
 
 export const PageForm3 = () => {
 
@@ -14,14 +18,17 @@ export const PageForm3 = () => {
         destination: '',
         inOutVal: '',
     }
-    
+    const [dateIn, setDateIn] = useState(new Date())
+    const [dateOut, setDateOut] = useState(new Date())
+    const checkInVal=dateIn.getFullYear()+'-'+(dateIn.getMonth()+1)+'-'+dateIn.getDate();
+    const checkOutVal=dateOut.getFullYear()+'-'+(dateOut.getMonth()+1)+'-'+dateOut.getDate();
     const {id} = useSelector(state => state.registerForm);
     const [inOut,handleInputInOut,resetInOut] = useForm(initialInOut)
     const dispatch = useDispatch();    
     const { loading } = useSelector(state => state.view);
     const register = (e) => {
         e.preventDefault();
-        dispatch(registerPost({...inOut,id}));
+        dispatch(registerPost({...inOut,id,checkInVal,checkOutVal}));
         dispatch(uiPage(3));
     }
         
@@ -108,31 +115,37 @@ export const PageForm3 = () => {
                         value={inOut.destination}
                         onChange={handleInputInOut}
                     />
-                </div>                
-                <div className="mb-4">
-                    <div className="form-check form-check-inline">
-                        <input 
-                            className="form-check-input" 
-                            type="radio" 
-                            name="inOutVal" 
-                            id="inlineRadio1" 
-                            value={1}
-                            onChange={handleInputInOut}
-                        />
-                        <label className="form-check-label" htmlFor="inlineRadio1">Entrada</label>
+                </div>      
+                
+                <div className="row mb-3">
+                    <div className="col">
+                        <div className="mb-2">
+                            <label htmlFor="check-in" className="form-label-sm">Check-In</label>
+                            <DatePicker 
+                                id="check-in"
+                                name="check-in"
+                                locale="es" 
+                                selected={dateIn} 
+                                onChange={(date) => setDateIn(date)} 
+                                disabled = {loading}
+                            />
+                        </div>
                     </div>
-                    <div className="form-check form-check-inline">
-                        <input 
-                            className="form-check-input" 
-                            type="radio" 
-                            name="inOutVal" 
-                            id="inlineRadio2" 
-                            value = ""
-                            onChange={handleInputInOut}
-                        />
-                        <label className="form-check-label" htmlFor="inlineRadio2">Salida</label>
+                    <div className="col">
+                        <div className="mb-2">
+                            <label htmlFor="check-out" className="form-label-sm">Check-Out</label>
+                            <DatePicker 
+                                id="check-out"
+                                name="check-out"
+                                locale="es" 
+                                selected={dateOut} 
+                                onChange={(date) => setDateOut(date)} 
+                                disabled = {loading}
+                            />
+                        </div>
                     </div>
-                </div>
+                </div>      
+
                 <div className="d-flex justify-content-between">
                     <button 
                         className="btn btn-primary btn-lg "
