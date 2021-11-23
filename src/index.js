@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import { HotelesApp } from './HotelesApp';
 import './index.scss'
 import 'bootstrap/scss/bootstrap.scss'
+import { HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
-    <HotelesApp />,
+  <HashRouter>
+    <HotelesApp />
+  </HashRouter>,
+
   document.getElementById('root')
 );
 
