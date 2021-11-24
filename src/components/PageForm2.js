@@ -155,20 +155,7 @@ export const PageForm2 = () => {
                         />
                         <label className="form-check-label" htmlFor="genero2">Femenino</label>
                     </div>
-                    <div className="form-check form-check-inline">
-                        <input 
-                            className="form-check-input" 
-                            type="radio" 
-                            name="genero" 
-                            id="genero3" 
-                            value={3}                            
-                            onChange={handleInputUser}
-                            disabled = {!newReg}
-                            checked= {newReg ? user.genero==="3" : (genero===3)}
-                        />
-                        <label className="form-check-label" htmlFor="genero3">Otro</label>
-                    </div>
-
+                    
                 </div>
             <div className="d-flex justify-content-between">
                 

@@ -16,7 +16,8 @@ export const ExcelDayly = ({date}) => {
                         <ExcelColumn label="CHECK OUT" value="check_out"/>
                         <ExcelColumn label="N° PIEZA" value="id_habitacion"/>
                         <ExcelColumn label="NOMBRE Y APELLIDO" value="fullName"/>
-                        <ExcelColumn label="SEXO" value="sexo"/>
+                        <ExcelColumn label="SEXO" 
+                            value={(col)=> col.sexo === 1 ? "Masculino" : "Femenino" }/>
                         <ExcelColumn label="NACIONALIDAD" value="nacionalidad"/>
                         <ExcelColumn label="EDAD" value="edad"/>
                         <ExcelColumn label="Celular" value="celular"/>
