@@ -10,7 +10,7 @@ export  const postRegister = async(regForm) => {
         destino: regForm.destination,
         nit: regForm.nit,
     };
-    const url= `http://localhost:8080/api/flujos/`
+    const url= `https://hotelesaitechbeta.azurewebsites.net/api/flujos/`
     const resp = await fetch(url,{
         method: 'POST',// *default, no-cache, reload, force-cache, only-if-cached
         headers: {

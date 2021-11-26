@@ -2,7 +2,7 @@ export  const nitUpdate = async(nit, id) => {
     const dataSend = {nit: nit,
     };
     console.log(dataSend)
-    const url= `http://localhost:8080/api/user/${id}`
+    const url= `https://hotelesaitechbeta.azurewebsites.net/api/user/${id}`
     const resp = await fetch(url,{
             method: 'PUT',// *default, no-cache, reload, force-cache, only-if-cached
             headers: {
