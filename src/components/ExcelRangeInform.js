@@ -20,6 +20,7 @@ export const ExcelRangeInform = () => {
                 <ExcelColumn label="No Factura" value="factura"/>
                 <ExcelColumn label="N° PIEZA" value="id_habitacion"/>
                 <ExcelColumn label="NOMBRE Y APELLIDO" value="fullName"/>
+                <ExcelColumn label="NIT" value="nit"/>
                 <ExcelColumn label="SEXO" value="sexo"/>
                 <ExcelColumn label="EDAD" value="edad"/>
                 <ExcelColumn label="Celular" value="celular"/>

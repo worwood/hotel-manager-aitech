@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content'
 import { getUser } from "../helpers/getUser";
+import { nitUpdate } from "../helpers/nitUpdate";
 import { postRegister } from "../helpers/postRegister";
 import { postUser } from "../helpers/postUser";
 import { types } from "../types/types";
@@ -56,6 +57,7 @@ export const registerPost = (reg) => {
                     icon: 'success',
                     confirmButtonText: 'Continuar'
                   })
+                nitUpdate(reg.nit,reg.id)
                 dispatch( viewFinishLoading());
                 dispatch( uiPage(1));
                 dispatch( registerClean() )

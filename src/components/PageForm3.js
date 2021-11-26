@@ -9,7 +9,7 @@ import es from 'date-fns/locale/es';
 registerLocale('es', es)
 
 export const PageForm3 = () => {
-
+    const {id,nit} = useSelector(state => state.registerForm);
     const initialInOut = {
         temperature: '',
         oxygenation: '',
@@ -17,13 +17,15 @@ export const PageForm3 = () => {
         invoice: '',
         destination: '',
         inOutVal: '',
+        nit: nit,
+
     }
     const [dateIn, setDateIn] = useState(new Date())
     const [dateOut, setDateOut] = useState(new Date())
     const checkInVal=dateIn.getFullYear()+'-'+(dateIn.getMonth()+1)+'-'+dateIn.getDate();
     const checkOutVal=dateOut.getFullYear()+'-'+(dateOut.getMonth()+1)+'-'+dateOut.getDate();
-    const {id} = useSelector(state => state.registerForm);
-    const [inOut,handleInputInOut,resetInOut] = useForm(initialInOut)
+    
+    const [inOut,handleInputInOut] = useForm(initialInOut)
     const dispatch = useDispatch();    
     const { loading } = useSelector(state => state.view);
     const register = (e) => {
@@ -117,7 +119,19 @@ export const PageForm3 = () => {
                     />
                 </div>      
                 
-                <div className="row mb-3">
+                <div className="mb-3">
+                    <label htmlFor="destino" className="form-label-sm">NIT</label>
+                    <input 
+                        type="numeric" 
+                        className="form-control" 
+                        id="nit" 
+                        placeholder=""
+                        name="nit"
+                        value={inOut.nit}
+                        onChange={handleInputInOut}
+                    />
+                </div> 
+                <div className="row mb-2">
                     <div className="col">
                         <div className="mb-2">
                             <label htmlFor="check-in" className="form-label-sm">Check-In</label>
@@ -128,6 +142,7 @@ export const PageForm3 = () => {
                                 selected={dateIn} 
                                 onChange={(date) => setDateIn(date)} 
                                 disabled = {loading}
+                                className="pt-1"
                             />
                         </div>
                     </div>
@@ -140,7 +155,8 @@ export const PageForm3 = () => {
                                 locale="es" 
                                 selected={dateOut} 
                                 onChange={(date) => setDateOut(date)} 
-                                disabled = {loading}
+                                disabled = {loading} 
+                                className="pt-1"
                             />
                         </div>
                     </div>

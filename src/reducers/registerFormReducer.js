@@ -18,6 +18,7 @@ const initialState = {
     invoice: '',
     destination: '',
     inOutVal: '',
+    nit: '',
 }
 
 export const registerFormReducer = (state = initialState, action) => {
@@ -33,7 +34,7 @@ export const registerFormReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newReg: false,
-                passaporte: action.payload.pasaporte_CI,                
+                passaporte: action.payload.pasaporte_CI,
                 nombre: action.payload.nombres,
                 apellidos: action.payload.apellidos,
                 correo: action.payload.email,
@@ -41,6 +42,7 @@ export const registerFormReducer = (state = initialState, action) => {
                 genero: action.payload.sexo,
                 nacionalidad: action.payload.nacionalidad,
                 celular: action.payload.celular,
+                nit: action.payload.nit,
                 id: action.payload.id,
             };
         case types.registerUser:

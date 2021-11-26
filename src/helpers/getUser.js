@@ -1,6 +1,6 @@
 
 export  const getUser = async(passaporte) => {
-    const url= `https://hotelesaitechbeta.azurewebsites.net/api/user/${passaporte}`
+    const url= `http://localhost:8080/api/user/${passaporte}`
     const resp = await fetch(url);
     const { status, usuario } = await resp.json();
     if(status){

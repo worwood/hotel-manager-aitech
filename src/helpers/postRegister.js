@@ -8,8 +8,9 @@ export  const postRegister = async(regForm) => {
         check_in: regForm.checkInVal,
         check_out: regForm.checkOutVal,
         destino: regForm.destination,
+        nit: regForm.nit,
     };
-    const url= `https://hotelesaitechbeta.azurewebsites.net/api/flujos/`
+    const url= `http://localhost:8080/api/flujos/`
     const resp = await fetch(url,{
         method: 'POST',// *default, no-cache, reload, force-cache, only-if-cached
         headers: {
