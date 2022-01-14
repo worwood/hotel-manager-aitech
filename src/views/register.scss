@@ -1,0 +1,29 @@
+#title-Table1 {
+  text-align: center;
+}
+
+#flujo-top-ten {
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+}
+
+#flujo-top-ten td,
+#flujo-top-ten th {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+#flujo-top-ten tr:hover {
+  background-color: #ddd;
+}
+
+#flujo-top-ten th {
+  padding: 10px;
+  text-align: center;
+  background-color: #2b3f5a;
+  color: white;
+}
+
+.tabla-1{
+  padding-bottom: 50px;
+}

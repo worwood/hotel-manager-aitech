@@ -9,6 +9,9 @@ export const types = {
     registerUser: '[Register] Registro Usuario',    
     registerInOut: '[Register] Registro Entrada Salida',
     registerClean: '[Register] Registro Liompiar',
+    registerInitial: '[Register] Pre-registro',
+    registerReduceNumber: '[Register] Reducir el numero de personas',
+    registerCleanPartialy: '[Register] Limpiar para el pre-registro',
     //UI Vista
     viewStartLoading: '[Vista] Loading',
     viewFinishLoading: '[Vista] Stop Loading',

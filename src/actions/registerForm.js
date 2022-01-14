@@ -1,7 +1,6 @@
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content'
 import { getUser } from "../helpers/getUser";
-import { nitUpdate } from "../helpers/nitUpdate";
 import { postRegister } from "../helpers/postRegister";
 import { postUser } from "../helpers/postUser";
 import { types } from "../types/types";
@@ -48,26 +47,42 @@ export const registerPostUser = (user) => {
 
 export const registerPost = (reg) => {
     
+    
     return (dispatch) => {
-        dispatch( viewStartLoading())
-        postRegister(reg).then(
+        
+        dispatch( viewStartLoading());
+        postRegister(reg)
+            .then(
             () => {
                 MySwal.fire({
                     title: <strong>Registro Exitoso</strong>,
                     icon: 'success',
                     confirmButtonText: 'Continuar'
                   })
-                nitUpdate(reg.nit,reg.id)
-                dispatch( viewFinishLoading());
-                dispatch( uiPage(1));
-                dispatch( registerClean() )
-                dispatch( uiCloseModal() )
+                if(reg.numberPeople === 1 || reg.numberPeople === '1'){
+                    dispatch( viewFinishLoading());
+                    dispatch( uiPage(0));
+                    dispatch( registerClean() );
+                    dispatch( uiCloseModal() );
+                }
+                else{
+                    dispatch( viewFinishLoading());
+                    dispatch( uiPage(1));
+                    dispatch( registerCleanPartialy() );
+                    dispatch( registerReduceNumber() );
+
+
+                }
 
             }
         ).catch()
     }
 
 }
+export const registerInitial = (reg) => ({
+    type: types.registerInitial,
+    payload: reg
+});
 
 export const registerNewPassport = (passport) => ({
     type: types.registerNewPassport,
@@ -75,6 +90,7 @@ export const registerNewPassport = (passport) => ({
         passport
     }
 });
+
 export const registerPassport = (user) => ({
     type: types.registerPassport,
     payload: user
@@ -89,6 +105,14 @@ export const registerUser = (user) => ({
 export const registerInOut = (inOut) => ({
     type: types.registerInOut,
     payload: inOut
+});
+
+export const registerReduceNumber = () => ({
+    type: types.registerReduceNumber,
+});
+
+export const registerCleanPartialy = () => ({
+    type: types.registerCleanPartialy,
 });
 
 export const registerClean = () => ({

@@ -18,7 +18,15 @@ export const useForm = ( initialState = {} ) => {
         });
 
     }
+    const handleInputChangeEasy = (e) => {
 
-    return [ values, handleInputChange, reset ];
+        setValues({
+            ...values,
+                [ e.name ] : e.label
+        });
+
+    }
+
+    return [ values, handleInputChange,handleInputChangeEasy, reset ];
 
 }

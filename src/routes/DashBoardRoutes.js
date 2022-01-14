@@ -14,7 +14,7 @@ export const DashBoardRoutes = () => {
             <Navbar />
             <div className="middle">
                 <Sidebar />
-                <div className="">
+                <div className="main-body">
                     <Switch>
                         <Route exact path="/" component={HomeView} />
                         <Route exact path="/huesped" component={HuespedesView} />

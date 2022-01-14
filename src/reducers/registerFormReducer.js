@@ -2,6 +2,8 @@ import { types } from "../types/types";
 
 
 const initialState = {
+    maxNumber: 1,
+    numberPeople: 1,
     passaporte: '',
     newReg: true,
     id: null,
@@ -17,12 +19,27 @@ const initialState = {
     room: '',
     invoice: '',
     destination: '',
+    checkIn: '',
+    checkOut: '',
     inOutVal: '',
     nit: '',
 }
 
 export const registerFormReducer = (state = initialState, action) => {
     switch (action.type) {
+        case types.registerInitial:
+            return {
+                ...state,
+                numberPeople: action.payload.numberPeople,
+                maxNumber: action.payload.numberPeople,
+                room: action.payload.habitacion,
+                nit: action.payload.nit,
+                invoice: action.payload.noFactura,                
+                destination: action.payload.destino,
+                checkIn: action.payload.checkInVal,
+                checkOut: action.payload.checkOutVal,
+            }; 
+
         case types.registerNewPassport:
             
             return {
@@ -74,7 +91,28 @@ export const registerFormReducer = (state = initialState, action) => {
         case types.registerClean:
         
             return initialState;
-    
+        
+        case types.registerCleanPartialy:        
+            return {...state,
+                        passaporte: '',
+                        newReg: true,
+                        id: null,
+                        nombre: '',
+                        apellidos: '',
+                        correo: '',
+                        edad: '',
+                        genero: '',
+                        nacionalidad: '',
+                        celular: '',
+                        temperature: '',
+                        oxygenation: '',
+                        inOutVal: '',              
+                   };
+        case types.registerReduceNumber:
+             
+            return {...state,
+                        numberPeople: state.numberPeople-1
+                    };
         default:
             return state;
     }
